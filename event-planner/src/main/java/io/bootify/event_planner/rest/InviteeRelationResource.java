@@ -1,5 +1,6 @@
 package io.bootify.event_planner.rest;
 
+import io.bootify.event_planner.domain.InviteeRelationID;
 import io.bootify.event_planner.model.InviteeRelationDTO;
 import io.bootify.event_planner.service.InviteeRelationService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -35,20 +36,20 @@ public class InviteeRelationResource {
 
     @GetMapping("/{id}")
     public ResponseEntity<InviteeRelationDTO> getInviteeRelation(
-            @PathVariable(name = "id") final Long id) {
+            @PathVariable(name = "id") final InviteeRelationID id) {
         return ResponseEntity.ok(inviteeRelationService.get(id));
     }
 
     @PostMapping
     @ApiResponse(responseCode = "201")
-    public ResponseEntity<Long> createInviteeRelation(
+    public ResponseEntity<InviteeRelationID> createInviteeRelation(
             @RequestBody @Valid final InviteeRelationDTO inviteeRelationDTO) {
-        final Long createdId = inviteeRelationService.create(inviteeRelationDTO);
+        final InviteeRelationID createdId = inviteeRelationService.create(inviteeRelationDTO);
         return new ResponseEntity<>(createdId, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Long> updateInviteeRelation(@PathVariable(name = "id") final Long id,
+    public ResponseEntity<InviteeRelationID> updateInviteeRelation(@PathVariable(name = "id") final InviteeRelationID id,
             @RequestBody @Valid final InviteeRelationDTO inviteeRelationDTO) {
         inviteeRelationService.update(id, inviteeRelationDTO);
         return ResponseEntity.ok(id);
@@ -56,7 +57,7 @@ public class InviteeRelationResource {
 
     @DeleteMapping("/{id}")
     @ApiResponse(responseCode = "204")
-    public ResponseEntity<Void> deleteInviteeRelation(@PathVariable(name = "id") final Long id) {
+    public ResponseEntity<Void> deleteInviteeRelation(@PathVariable(name = "id") final InviteeRelationID id) {
         inviteeRelationService.delete(id);
         return ResponseEntity.noContent().build();
     }

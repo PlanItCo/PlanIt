@@ -1,6 +1,7 @@
 package io.bootify.event_planner.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.bootify.event_planner.domain.InviteeRelationID;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +11,7 @@ import lombok.Setter;
 @Setter
 public class InviteeRelationDTO {
 
-    private Long id;
+    private InviteeRelationID id;
 
     @NotNull
     @JsonProperty("isComing")

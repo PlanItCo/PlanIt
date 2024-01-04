@@ -45,6 +45,13 @@ public class EventResource {
         return new ResponseEntity<>(createdId, HttpStatus.CREATED);
     }
 
+    @PostMapping("/init")
+    @ApiResponse(responseCode = "201")
+    public ResponseEntity<Integer> initEvents(@RequestBody @Valid final EventDTO eventDTO) {
+        final Integer createdId = eventService.create(eventDTO);
+        return new ResponseEntity<>(createdId, HttpStatus.CREATED);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Integer> updateEvent(@PathVariable(name = "id") final Integer id,
             @RequestBody @Valid final EventDTO eventDTO) {
