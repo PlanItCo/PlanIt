@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d6a4b0f9-80c8-4588-8434-6522ce550f93" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/event-planner/src/main/java/io/bootify/event_planner/domain/InviteeRelationID.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/event-planner/src/main/java/io/bootify/event_planner/domain/InviteeRelation.java" beforeDir="false" afterPath="$PROJECT_DIR$/event-planner/src/main/java/io/bootify/event_planner/domain/InviteeRelation.java" afterDir="false" />
-    </list>
+    <list default="true" id="d6a4b0f9-80c8-4588-8434-6522ce550f93" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +23,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2aVLRc6S69703cBTTgKENjAJvGa" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -42,9 +39,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/theha/Documents/GitHub/SpringBooty/event-planner",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "spring.configuration.checksum": "1d8eedfe7d33e57bb197e9b88ac4acb1"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "show.migrate.to.gradle.popup": "false",
+    "spring.configuration.checksum": "1d8eedfe7d33e57bb197e9b88ac4acb1",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -55,20 +61,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="SwaggerCodegen">
-      <option name="activeConfigurationType" value="FILE" />
-      <option name="configurationPath" value="" />
-      <option name="customJreEnabled" value="false" />
+    <configuration default="true" type="SwaggerCodegen" show_console_on_std_err="false" show_console_on_std_out="false">
+      <option name="allowRunningInParallel" value="false" />
       <option name="customTemplatesPath" value="" />
-      <option name="enableDebugLogging" value="false" />
+      <option name="envs">
+        <map />
+      </option>
       <option name="generateToPath" value="" />
       <option name="generationParameters">
         <list />
       </option>
-      <option name="generatorPath" value="" />
+      <option name="generatorType" value="OPENAPI_GENERATOR_V6" />
       <option name="jdkPath" value="Default" />
       <option name="language" value="" />
+      <option name="passParentEnvs" value="true" />
+      <option name="programParameters" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
       <option name="specificationPath" value="" />
+      <option name="workingDirectory" value="" />
       <method v="2" />
     </configuration>
   </component>
@@ -83,6 +96,8 @@
       <workItem from="1704398794189" duration="529000" />
       <workItem from="1704399338743" duration="2808000" />
       <workItem from="1704402418451" duration="272000" />
+      <workItem from="1704825887850" duration="595000" />
+      <workItem from="1704826494020" duration="644000" />
     </task>
     <servers />
   </component>
