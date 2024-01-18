@@ -11,6 +11,18 @@ import lombok.Setter;
 @Setter
 public class EventDTO {
 
+    public EventDTO(){}
+    public EventDTO(String title, String description, String status, OffsetDateTime createdAt, OffsetDateTime eventTime, String location, Integer creatorID, Integer numInvited){
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.createdAt = createdAt;
+        this.eventTime = eventTime;
+        this.location = location;
+        this.creatorID = creatorID;
+        this.numInvited = numInvited;
+    }
+
     private Integer id;
 
     @NotNull
@@ -31,8 +43,8 @@ public class EventDTO {
     private String location;
 
     @NotNull
-    private Integer creator;
+    private Integer creatorID;
 
-    private Integer invited;
+    private Integer numInvited;
 
 }

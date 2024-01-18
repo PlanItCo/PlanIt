@@ -1,6 +1,8 @@
 package io.bootify.event_planner.rest;
 
+import io.bootify.event_planner.model.CreateEventDTO;
 import io.bootify.event_planner.model.EventDTO;
+import io.bootify.event_planner.service.CreateEventService;
 import io.bootify.event_planner.service.EventService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
@@ -23,9 +25,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class EventResource {
 
     private final EventService eventService;
+    private final CreateEventService createEventService;
 
-    public EventResource(final EventService eventService) {
+    public EventResource(final EventService eventService, final CreateEventService createEventService) {
         this.eventService = eventService;
+        this.createEventService = createEventService;
     }
 
     @GetMapping
@@ -36,6 +40,13 @@ public class EventResource {
     @GetMapping("/{id}")
     public ResponseEntity<EventDTO> getEvent(@PathVariable(name = "id") final Integer id) {
         return ResponseEntity.ok(eventService.get(id));
+    }
+
+    @PostMapping("/create")
+    @ApiResponse(responseCode = "201")
+    public ResponseEntity<Integer> createEvent(@RequestBody @Valid final CreateEventDTO createEventDTO){
+        final Integer eventID = createEventService.createEvent(createEventDTO);
+        return new ResponseEntity<>(eventID, HttpStatus.CREATED);
     }
 
     @PostMapping

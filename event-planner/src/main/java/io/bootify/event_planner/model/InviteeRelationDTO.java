@@ -10,6 +10,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class InviteeRelationDTO {
+    public InviteeRelationDTO(){}
+    public InviteeRelationDTO(Integer event, Integer invitee){
+        this.isComing = false;
+        this.invitee = invitee;
+        this.event = event;
+
+    }
 
     private InviteeRelationID id;
 

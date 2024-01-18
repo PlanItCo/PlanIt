@@ -60,9 +60,8 @@ public class Event {
     @JoinColumn(name = "creator_id", nullable = false)
     private User creator;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "invited_id")
-    private Invitee invited;
+
+    private Integer numInvited;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)

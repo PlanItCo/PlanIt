@@ -43,8 +43,8 @@ public class Invitee {
     @Column(nullable = false, unique = true, length = 50)
     private String email;
 
-    @OneToMany(mappedBy = "invited")
-    private Set<Event> events;
+//    @OneToMany(mappedBy = "invited")
+//    private Set<Event> events;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
