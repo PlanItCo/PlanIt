@@ -77,7 +77,6 @@ public class InviteeRelationService {
         final Event event = inviteeRelationDTO.getEvent() == null ? null : eventRepository.findById(inviteeRelationDTO.getEvent())
                 .orElseThrow(() -> new NotFoundException("event not found"));
         inviteeRelation.setEvent(event);
-
         return inviteeRelation;
     }
 

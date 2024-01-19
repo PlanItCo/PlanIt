@@ -35,7 +35,6 @@ public class CreateEventService {
         for(InviteeDTO invitee: createEvent.getInviteeList()){
             Integer inviteeID = inviteeService.create(invitee);
             InviteeRelationDTO inviteeRelation = new InviteeRelationDTO(eventID, inviteeID);
-            System.out.println("hello");
             inviteeRelationService.create(inviteeRelation);
         }
 

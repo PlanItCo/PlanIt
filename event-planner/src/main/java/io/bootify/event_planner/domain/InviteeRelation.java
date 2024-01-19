@@ -29,7 +29,7 @@ public class InviteeRelation {
 
     @OneToOne(fetch = FetchType.LAZY)
     @MapsId("eventId")
-    private Event event;
+    public Event event;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -39,4 +39,10 @@ public class InviteeRelation {
     @Column(nullable = false)
     private OffsetDateTime lastUpdated;
 
+    public void setEvent(Event event) {
+        System.out.println(event instanceof Event);
+        System.out.println(this.event instanceof Event);
+        System.out.println(this.event.getClass().getName());
+        this.event = event;
+    }
 }
