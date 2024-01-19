@@ -69,15 +69,13 @@ public class InviteeRelationService {
 
     private InviteeRelation mapToEntity(final InviteeRelationDTO inviteeRelationDTO,
             final InviteeRelation inviteeRelation) {
+
         inviteeRelation.setIsComing(inviteeRelationDTO.getIsComing());
         final Invitee invitee = inviteeRelationDTO.getInvitee() == null ? null : inviteeRepository.findById(inviteeRelationDTO.getInvitee())
                 .orElseThrow(() -> new NotFoundException("invitee not found"));
         inviteeRelation.setInvitee(invitee);
-        System.out.println(inviteeRelation.getInvitee());
         final Event event = inviteeRelationDTO.getEvent() == null ? null : eventRepository.findById(inviteeRelationDTO.getEvent())
                 .orElseThrow(() -> new NotFoundException("event not found"));
-        System.out.println(inviteeRelationDTO.getEvent());
-        System.out.println(event);
         inviteeRelation.setEvent(event);
 
         return inviteeRelation;
