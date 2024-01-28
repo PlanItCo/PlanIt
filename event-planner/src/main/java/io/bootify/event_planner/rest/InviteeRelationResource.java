@@ -1,6 +1,5 @@
 package io.bootify.event_planner.rest;
 
-import io.bootify.event_planner.domain.InviteeRelationID;
 import io.bootify.event_planner.model.InviteeRelationDTO;
 import io.bootify.event_planner.service.InviteeRelationService;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -36,20 +35,20 @@ public class InviteeRelationResource {
 
     @GetMapping("/{id}")
     public ResponseEntity<InviteeRelationDTO> getInviteeRelation(
-            @PathVariable(name = "id") final InviteeRelationID id) {
+            @PathVariable(name = "id") final Integer id) {
         return ResponseEntity.ok(inviteeRelationService.get(id));
     }
 
     @PostMapping
     @ApiResponse(responseCode = "201")
-    public ResponseEntity<InviteeRelationID> createInviteeRelation(
+    public ResponseEntity<Integer> createInviteeRelation(
             @RequestBody @Valid final InviteeRelationDTO inviteeRelationDTO) {
-        final InviteeRelationID createdId = inviteeRelationService.create(inviteeRelationDTO);
+        final Integer createdId = inviteeRelationService.create(inviteeRelationDTO);
         return new ResponseEntity<>(createdId, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<InviteeRelationID> updateInviteeRelation(@PathVariable(name = "id") final InviteeRelationID id,
+    public ResponseEntity<Integer> updateInviteeRelation(@PathVariable(name = "id") final Integer id,
             @RequestBody @Valid final InviteeRelationDTO inviteeRelationDTO) {
         inviteeRelationService.update(id, inviteeRelationDTO);
         return ResponseEntity.ok(id);
@@ -57,7 +56,7 @@ public class InviteeRelationResource {
 
     @DeleteMapping("/{id}")
     @ApiResponse(responseCode = "204")
-    public ResponseEntity<Void> deleteInviteeRelation(@PathVariable(name = "id") final InviteeRelationID id) {
+    public ResponseEntity<Void> deleteInviteeRelation(@PathVariable(name = "id") final Integer id) {
         inviteeRelationService.delete(id);
         return ResponseEntity.noContent().build();
     }

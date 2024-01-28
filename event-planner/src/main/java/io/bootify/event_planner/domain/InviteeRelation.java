@@ -17,18 +17,29 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 public class InviteeRelation {
 
-    @EmbeddedId
-    private InviteeRelationID id;
+    @Id
+    @Column(nullable = false, updatable = false)
+    @SequenceGenerator(
+            name = "primary_sequence",
+            sequenceName = "primary_sequence",
+            allocationSize = 1,
+            initialValue = 10000
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "primary_sequence"
+    )
+    private Integer id;
 
     @Column(nullable = false)
     private Boolean isComing;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId("inviteeId")
+    @JoinColumn(name = "inviteeId", nullable = false)
     private Invitee invitee;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId("eventId")
+    @JoinColumn(name = "eventId", nullable = false)
     public Event event;
 
     @CreatedDate
@@ -39,10 +50,4 @@ public class InviteeRelation {
     @Column(nullable = false)
     private OffsetDateTime lastUpdated;
 
-    public void setEvent(Event event) {
-        System.out.println(event instanceof Event);
-        System.out.println(this.event instanceof Event);
-        System.out.println(this.event.getClass().getName());
-        this.event = event;
-    }
 }

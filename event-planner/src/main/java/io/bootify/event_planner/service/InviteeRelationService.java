@@ -3,7 +3,6 @@ package io.bootify.event_planner.service;
 import io.bootify.event_planner.domain.Event;
 import io.bootify.event_planner.domain.Invitee;
 import io.bootify.event_planner.domain.InviteeRelation;
-import io.bootify.event_planner.domain.InviteeRelationID;
 import io.bootify.event_planner.model.InviteeRelationDTO;
 import io.bootify.event_planner.repos.EventRepository;
 import io.bootify.event_planner.repos.InviteeRelationRepository;
@@ -35,26 +34,26 @@ public class InviteeRelationService {
                 .toList();
     }
 
-    public InviteeRelationDTO get(final InviteeRelationID id) {
+    public InviteeRelationDTO get(final Integer id) {
         return inviteeRelationRepository.findById(id)
                 .map(inviteeRelation -> mapToDTO(inviteeRelation, new InviteeRelationDTO()))
                 .orElseThrow(NotFoundException::new);
     }
 
-    public InviteeRelationID create(final InviteeRelationDTO inviteeRelationDTO) {
+    public Integer create(final InviteeRelationDTO inviteeRelationDTO) {
         final InviteeRelation inviteeRelation = new InviteeRelation();
         mapToEntity(inviteeRelationDTO, inviteeRelation);
         return inviteeRelationRepository.save(inviteeRelation).getId();
     }
 
-    public void update(final InviteeRelationID id, final InviteeRelationDTO inviteeRelationDTO) {
+    public void update(final Integer id, final InviteeRelationDTO inviteeRelationDTO) {
         final InviteeRelation inviteeRelation = inviteeRelationRepository.findById(id)
                 .orElseThrow(NotFoundException::new);
         mapToEntity(inviteeRelationDTO, inviteeRelation);
         inviteeRelationRepository.save(inviteeRelation);
     }
 
-    public void delete(final InviteeRelationID id) {
+    public void delete(final Integer id) {
         inviteeRelationRepository.deleteById(id);
     }
 
