@@ -65,8 +65,8 @@ public class EventService {
         eventDTO.setCreatedAt(event.getCreatedAt());
         eventDTO.setEventTime(event.getEventTime());
         eventDTO.setLocation(event.getLocation());
-        eventDTO.setCreator(event.getCreator() == null ? null : event.getCreator().getId());
-        eventDTO.setInvited(event.getInvited() == null ? null : event.getInvited().getId());
+        eventDTO.setCreatorID(event.getCreator() == null ? null : event.getCreator().getId());
+        eventDTO.setNumInvited(event.getNumInvited());
         return eventDTO;
     }
 
@@ -77,12 +77,14 @@ public class EventService {
         event.setCreatedAt(eventDTO.getCreatedAt());
         event.setEventTime(eventDTO.getEventTime());
         event.setLocation(eventDTO.getLocation());
-        final User creator = eventDTO.getCreator() == null ? null : userRepository.findById(eventDTO.getCreator())
+        final User creator = eventDTO.getCreatorID() == null ? null : userRepository.findById(eventDTO.getCreatorID())
                 .orElseThrow(() -> new NotFoundException("creator not found"));
         event.setCreator(creator);
-        final Invitee invited = eventDTO.getInvited() == null ? null : inviteeRepository.findById(eventDTO.getInvited())
-                .orElseThrow(() -> new NotFoundException("invited not found"));
-        event.setInvited(invited);
+        final Integer invited = eventDTO.getNumInvited();
+//                == null ? null : inviteeRepository.findById(eventDTO.getInvited())
+//                .orElseThrow(() -> new NotFoundException("invited not found"));
+        event.setNumInvited(invited);
+
         return event;
     }
 
